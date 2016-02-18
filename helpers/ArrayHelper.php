@@ -1,13 +1,13 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use yii\helpers\ArrayHelper as YiiArrayHelper;
 
     /**
      * Class ArrayHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class ArrayHelper extends YiiArrayHelper
     {
@@ -46,7 +46,7 @@
          *
          * @return array
          */
-        public static function asAssociate($items)
+        public static function asAssociative($items)
         {
             if (is_array($items) && count($items) > 0) {
                 $newItems = [];
@@ -59,5 +59,19 @@
             } else {
                 return [];
             }
+        }
+
+        /**
+         * @param array $items
+         *
+         * @return array
+         *
+         * @see static::asAssociative()
+         *
+         * @deprecated
+         */
+        public static function asAssociate($items)
+        {
+            return static::asAssociative($items);
         }
     }

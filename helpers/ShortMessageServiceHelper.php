@@ -1,13 +1,13 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use Yii;
 
     /**
      * Class ShortMessageServiceHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class ShortMessageServiceHelper extends StringHelper
     {

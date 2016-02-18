@@ -1,13 +1,13 @@
 <?php
 
-    namespace common\components\helpers\exceptions;
+    namespace nox\helpers\exceptions;
 
-    use Exception;
+    use yii\base\Exception;
 
     /**
      * Class InvalidVariableTypeException
      *
-     * @package common\components\helpers\exceptions
+     * @package nox\helpers\exceptions
      */
     class InvalidVariableTypeException extends Exception
     {

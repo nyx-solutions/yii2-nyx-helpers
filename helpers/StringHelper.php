@@ -1,6 +1,6 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use common\models\Model;
     use DateTime;
@@ -11,16 +11,16 @@
     /**
      * Class StringHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class StringHelper extends YiiStringHelper
     {
-        const GENDER_MALE   = Model::GENDER_MALE;
-        const GENDER_FEMALE = Model::GENDER_FEMALE;
+        const GENDER_MALE       = 'M';
+        const GENDER_FEMALE     = 'F';
 
-        const CASE_UPPER = MB_CASE_UPPER;
-        const CASE_LOWER = MB_CASE_LOWER;
-        const CASE_TITLE = MB_CASE_TITLE;
+        const CASE_UPPER        = MB_CASE_UPPER;
+        const CASE_LOWER        = MB_CASE_LOWER;
+        const CASE_TITLE        = MB_CASE_TITLE;
 
         const ID_PATTERN_LENGTH = 9;
 

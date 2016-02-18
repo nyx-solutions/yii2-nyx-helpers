@@ -1,13 +1,13 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use Yii;
 
     /**
      * Class StringMaskHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class StringMaskHelper extends StringHelper
     {

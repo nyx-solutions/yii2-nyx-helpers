@@ -1,6 +1,6 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     /**
      * Class Html
@@ -8,7 +8,7 @@
      * @category Html
      * @author   Jonatas Sas
      *
-     * @package  common\components\helpers
+     * @package  nox\helpers
      */
     class Html extends \yii\helpers\Html
     {
@@ -22,18 +22,6 @@
          */
         public static function glyphicon($glyph, $content = '', $prefix = '', $suffix = ' ')
         {
-            return $prefix.self::tag('span', $content, ['class' => 'glyphicon glyphicon-'.$glyph]).$suffix;
-        }
-
-        /**
-         * @param string       $image
-         * @param string       $label
-         * @param string|array $url
-         *
-         * @return string
-         */
-        public static function getProfessionalSearchMenuItem($image, $label, $url)
-        {
-            return static::a(static::img($image).static::tag('p', $label), $url);
+            return $prefix.static::tag('span', $content, ['class' => 'glyphicon glyphicon-'.$glyph]).$suffix;
         }
     }

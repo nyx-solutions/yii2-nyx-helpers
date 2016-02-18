@@ -1,6 +1,6 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use Yii;
     use yii\base\InvalidConfigException;
@@ -10,7 +10,7 @@
     /**
      * Class InflectorHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class InflectorHelper extends YiiInflectorHelper
     {

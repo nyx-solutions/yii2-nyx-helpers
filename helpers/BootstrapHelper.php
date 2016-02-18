@@ -1,6 +1,6 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use Yii;
     use yii\helpers\Html as YiiHtmlHelper;
@@ -8,7 +8,7 @@
     /**
      * Class BootstrapHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class BootstrapHelper extends YiiHtmlHelper
     {

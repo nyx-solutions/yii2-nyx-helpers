@@ -1,11 +1,11 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     /**
      * Class StringCryptHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class StringCryptHelper extends StringHelper
     {

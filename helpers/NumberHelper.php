@@ -1,11 +1,11 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     /**
      * Class NumberHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class NumberHelper
     {

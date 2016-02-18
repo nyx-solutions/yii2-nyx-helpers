@@ -1,13 +1,13 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use yii\helpers\FileHelper as YiiFileHelper;
 
     /**
      * Class FileHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class FileHelper extends YiiFileHelper
     {

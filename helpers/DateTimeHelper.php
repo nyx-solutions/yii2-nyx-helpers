@@ -1,6 +1,6 @@
 <?php
 
-    namespace common\components\helpers;
+    namespace nox\helpers;
 
     use DateTime;
     use DateTimeZone;
@@ -10,7 +10,7 @@
     /**
      * Class DateTimeHelper
      *
-     * @package common\components\helpers
+     * @package nox\helpers
      */
     class DateTimeHelper
     {
