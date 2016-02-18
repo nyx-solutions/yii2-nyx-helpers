@@ -92,7 +92,7 @@
          */
         public static function forceType($variable, $type = self::TYPE_STRING, $raiseError = false)
         {
-            self::force($variable, $type, $raiseError);
+            static::force($variable, $type, $raiseError);
         }
 
         /**

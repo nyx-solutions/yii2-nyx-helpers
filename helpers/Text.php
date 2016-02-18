@@ -5,13 +5,14 @@
     use DateTime;
     use DateTimeZone;
     use Yii;
+    use yii\helpers\StringHelper;
 
     /**
      * Class Text
      *
      * @package nox\helpers
      */
-    class Text extends \yii\helpers\StringHelper
+    class Text extends StringHelper
     {
         const GENDER_MALE       = 'M';
         const GENDER_FEMALE     = 'F';
@@ -33,7 +34,19 @@
         {
             $content = (string)$content;
 
-            return preg_replace('/([^0-9]+)/', '', $content);
+            return (string)preg_replace('/([^0-9]+)/', '', $content);
+        }
+
+        /**
+         * @param string $content
+         *
+         * @return string
+         */
+        public static function justLetters($content = '')
+        {
+            $content = (string)$content;
+
+            return (string)preg_replace('/([^A-Za-z]+)/', '', $content);
         }
 
         /**
@@ -51,11 +64,11 @@
         }
 
         /**
-         * @param string $value
-         * @param string $spaces
-         * @param int    $case
+         * @param string  $value
+         * @param string  $spaces
+         * @param integer $case
          *
-         * @return mixed|string
+         * @return string
          */
         public static function asSlug($value = '', $spaces = '-', $case = MB_CASE_LOWER)
         {
@@ -71,7 +84,7 @@
             $value = preg_replace('/([^A-Za-z0-9'.quotemeta($spaces).']{1,})/', '', $value);
             $value = mb_convert_case($value, $case, 'UTF-8');
 
-            return $value;
+            return (string)$value;
         }
 
         /**

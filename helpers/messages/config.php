@@ -1,7 +1,7 @@
 <?php
 
     return [
-        'sourcePath'   => __DIR__.DIRECTORY_SEPARATOR.'..',
+        'sourcePath'   => __DIR__.DIRECTORY_SEPARATOR,
         'messagePath'  => __DIR__,
         'languages'    => [
             'en',

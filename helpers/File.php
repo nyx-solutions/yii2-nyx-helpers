@@ -2,12 +2,14 @@
 
     namespace nox\helpers;
 
+    use yii\helpers\FileHelper;
+
     /**
-     * Class FileHelper
+     * Class File
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class File extends FileHelper
     {
 
     }
