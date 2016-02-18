@@ -5,11 +5,11 @@
     use Yii;
 
     /**
-     * Class ShortMessageServiceHelper
+     * Class ShortMessageService
      *
      * @package nox\helpers
      */
-    class ShortMessageServiceHelper extends StringHelper
+    class ShortMessageService extends Text
     {
         /**
          * @param string $phone

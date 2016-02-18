@@ -3,11 +3,10 @@
     namespace nox\helpers;
 
     /**
-     * Class FileHelper
+     * Class VarDumper
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class VarDumper extends \yii\helpers\VarDumper
     {
-
     }

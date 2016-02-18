@@ -3,11 +3,10 @@
     namespace nox\helpers;
 
     /**
-     * Class FileHelper
+     * Class Url
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class Url extends \yii\helpers\Url
     {
-
     }

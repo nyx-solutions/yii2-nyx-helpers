@@ -3,11 +3,10 @@
     namespace nox\helpers;
 
     /**
-     * Class FileHelper
+     * Class Json
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class Json extends \yii\helpers\Json
     {
-
     }

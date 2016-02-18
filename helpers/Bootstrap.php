@@ -3,14 +3,13 @@
     namespace nox\helpers;
 
     use Yii;
-    use yii\helpers\Html as YiiHtmlHelper;
 
     /**
-     * Class BootstrapHelper
+     * Class Bootstrap
      *
      * @package nox\helpers
      */
-    class BootstrapHelper extends YiiHtmlHelper
+    class Bootstrap extends Html
     {
         /**
          * Bootstrap CSS helpers
@@ -95,7 +94,7 @@
          */
         public static function bsLabel($content, $type = '', $options = [], $prefix = 'label label-', $tag = 'span')
         {
-            if (VariablesHelper::isEmpty($type)) {
+            if (Variables::isEmpty($type)) {
                 $type = self::TYPE_DEFAULT;
             }
             $class = isset($options['class']) ? ' '.$options['class'] : '';
@@ -218,10 +217,10 @@
             if (is_array($content)) {
                 $heading = isset($content['heading']) ? $content['heading'] : '';
                 $body = isset($content['body']) ? $content['body'] : '';
-                if (!VariablesHelper::isEmpty($heading)) {
+                if (!Variables::isEmpty($heading)) {
                     $heading = static::tag('h4', $heading, ['class' => 'list-group-item-heading']);
                 }
-                if (!VariablesHelper::isEmpty($body)) {
+                if (!Variables::isEmpty($body)) {
                     $body = static::tag('p', $body, ['class' => 'list-group-item-text']);
                 }
                 $content = $heading."\n".$body;
@@ -229,13 +228,13 @@
 
             /* Parse item badge component */
             $badge = isset($item['badge']) ? $item['badge'] : '';
-            if (!VariablesHelper::isEmpty($badge)) {
+            if (!Variables::isEmpty($badge)) {
                 $content = static::badge($badge).$content;
             }
 
             /* Parse item url */
             $url = isset($item['url']) ? $item['url'] : '';
-            if (!VariablesHelper::isEmpty($url)) {
+            if (!Variables::isEmpty($url)) {
                 /* Parse if item is active */
                 if (isset($item['active']) && $item['active']) {
                     static::addCssClass($item['options'], 'active');
@@ -416,14 +415,14 @@
                 return '';
             } else {
                 static::addCssClass($options, 'panel panel-'.$type);
-                $panel = (!VariablesHelper::isEmpty($content['preHeading'])) ? $content['preHeading']."\n" : '';
+                $panel = (!Variables::isEmpty($content['preHeading'])) ? $content['preHeading']."\n" : '';
                 $panel .= static::generatePanelTitle($content, 'heading');
-                $panel .= (!VariablesHelper::isEmpty($content['preBody'])) ? $content['preBody']."\n" : '';
-                $panel .= (!VariablesHelper::isEmpty($content['body'])) ? static::tag('div', $content['body'],
+                $panel .= (!Variables::isEmpty($content['preBody'])) ? $content['preBody']."\n" : '';
+                $panel .= (!Variables::isEmpty($content['body'])) ? static::tag('div', $content['body'],
                         ['class' => 'panel-body'])."\n" : '';
-                $panel .= (!VariablesHelper::isEmpty($content['postBody'])) ? $content['postBody']."\n" : '';
+                $panel .= (!Variables::isEmpty($content['postBody'])) ? $content['postBody']."\n" : '';
                 $panel .= static::generatePanelTitle($content, 'footer');
-                $panel .= (!VariablesHelper::isEmpty($content['postFooter'])) ? $content['postFooter']."\n" : '';
+                $panel .= (!Variables::isEmpty($content['postFooter'])) ? $content['postFooter']."\n" : '';
 
                 return static::tag('div', $panel, $options);
             }
@@ -439,7 +438,7 @@
          */
         protected static function generatePanelTitle($content, $type)
         {
-            if (!VariablesHelper::isEmpty($content[$type])) {
+            if (!Variables::isEmpty($content[$type])) {
                 $title = $content[$type];
                 if (isset($content["{$type}Title"]) && $content["{$type}Title"]) {
                     $title = static::tag("h3", $title, ["class" => "panel-title"]);
@@ -473,7 +472,7 @@
         public static function pageHeader($title, $subTitle = '', $options = [])
         {
             static::addCssClass($options, 'page-header');
-            if (!VariablesHelper::isEmpty($subTitle)) {
+            if (!Variables::isEmpty($subTitle)) {
                 $title = "<h1>{$title} <small>{$subTitle}</small></h1>";
             } else {
                 $title = "<h1>{$title}</h1>";
@@ -508,7 +507,7 @@
         public static function well($content, $size = '', $options = [])
         {
             static::addCssClass($options, 'well');
-            if (!VariablesHelper::isEmpty($size)) {
+            if (!Variables::isEmpty($size)) {
                 static::addCssClass($options, 'well-'.$size);
             }
 
@@ -562,9 +561,9 @@
             static::addCssClass($imgOptions, 'media-object');
 
             $source = static::a(static::img($img, $imgOptions), $src, $srcOptions);
-            $heading = (!VariablesHelper::isEmpty($heading)) ? static::tag('h4', $heading,
+            $heading = (!Variables::isEmpty($heading)) ? static::tag('h4', $heading,
                 ['class' => 'media-heading']) : '';
-            $content = (!VariablesHelper::isEmpty($body)) ? static::tag('div', $heading."\n".$body,
+            $content = (!Variables::isEmpty($body)) ? static::tag('div', $heading."\n".$body,
                 ['class' => 'media-body']) : $heading;
 
             return static::tag($tag, $source."\n".$content, $options);
@@ -803,7 +802,7 @@
         public static function blockquote($content, $citeContent = '', $citeTitle = '', $citeSource = '', $options = [])
         {
             $content = static::tag('p', $content);
-            if (!VariablesHelper::isEmpty($citeContent)) {
+            if (!Variables::isEmpty($citeContent)) {
                 $source = static::tag('cite', $citeSource, ['title' => $citeTitle]);
                 $content .= "\n<small>".str_replace('{source}', $source, $citeContent)."</small>";
             }
@@ -858,7 +857,7 @@
             $phoneLabel = '(P)',
             $emailLabel = '(E)'
         ) {
-            InflectorHelper::initI18N();
+            Inflector::initI18N();
 
             $addresses = '';
 

@@ -3,11 +3,10 @@
     namespace nox\helpers;
 
     /**
-     * Class FileHelper
+     * Class HtmlPurifier
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class HtmlPurifier extends \yii\helpers\HtmlPurifier
     {
-
     }

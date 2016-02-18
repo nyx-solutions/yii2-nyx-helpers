@@ -3,11 +3,10 @@
     namespace nox\helpers;
 
     /**
-     * Class FileHelper
+     * Class Console
      *
      * @package nox\helpers
      */
-    class FileHelper extends \yii\helpers\FileHelper
+    class Console extends \yii\helpers\Console
     {
-
     }

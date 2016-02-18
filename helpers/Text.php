@@ -2,18 +2,16 @@
 
     namespace nox\helpers;
 
-    use common\models\Model;
     use DateTime;
     use DateTimeZone;
     use Yii;
-    use yii\helpers\StringHelper as YiiStringHelper;
 
     /**
-     * Class StringHelper
+     * Class Text
      *
      * @package nox\helpers
      */
-    class StringHelper extends YiiStringHelper
+    class Text extends \yii\helpers\StringHelper
     {
         const GENDER_MALE       = 'M';
         const GENDER_FEMALE     = 'F';

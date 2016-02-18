@@ -2,17 +2,14 @@
 
     namespace nox\helpers;
 
-    use DateTime;
-    use DateTimeZone;
     use Yii;
-    use DateInterval;
 
     /**
-     * Class DateTimeHelper
+     * Class DateTime
      *
      * @package nox\helpers
      */
-    class DateTimeHelper
+    class DateTime
     {
         const TYPE_DATE      = 'date';
         const TYPE_TIME      = 'time';
@@ -61,9 +58,9 @@
 
             unset($fmt);
 
-            $date = DateTime::createFromFormat($sourceFormat, $date);
+            $date = \DateTime::createFromFormat($sourceFormat, $date);
 
-            if ($date instanceof DateTime) {
+            if ($date instanceof \DateTime) {
                 $date = $date->format($targetFormat);
             } else {
                 $date = '';
@@ -77,18 +74,18 @@
          * @param string $sourceFormat
          * @param string $type
          *
-         * @return DateTime
+         * @return \DateTime
          */
         public static function asDate($date, $sourceFormat = 'd/m/Y', $type = 'date')
         {
             $date = (string)$date;
 
             if (!in_array($type, [self::TYPE_DATE, self::TYPE_TIME, self::TYPE_DATE_TIME, self::TYPE_OTHER])) {
-                return new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
+                return new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             if (empty($date)) {
-                return new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
+                return new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             if ($type === self::TYPE_DATE_TIME) {
@@ -109,10 +106,10 @@
 
             unset($fmt);
 
-            $date = DateTime::createFromFormat($sourceFormat, $date, new DateTimeZone(Yii::$app->getTimeZone()));
+            $date = \DateTime::createFromFormat($sourceFormat, $date, new \DateTimeZone(Yii::$app->getTimeZone()));
 
-            if (!$date instanceof DateTime) {
-                $date = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
+            if (!$date instanceof \DateTime) {
+                $date = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             return $date;
@@ -131,9 +128,9 @@
 
             if (!empty($date) && !is_null($date)) {
                 if (preg_match('/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/', $date)) {
-                    $date = DateTime::createFromFormat('d/m/Y', $date, new DateTimeZone(Yii::$app->getTimeZone()));
+                    $date = \DateTime::createFromFormat('d/m/Y', $date, new \DateTimeZone(Yii::$app->getTimeZone()));
 
-                    if ($date instanceof DateTime) {
+                    if ($date instanceof \DateTime) {
                         return $date->format($returnFormat);
                     } else {
                         return false;
@@ -153,7 +150,7 @@
          */
         public static function now($format = 'Y-m-d H:i:s')
         {
-            $now = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
+            $now = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
 
             return $now->format($format);
         }
@@ -167,14 +164,14 @@
         public static function getAge($birthdate, $format = 'Y-m-d')
         {
             if (!empty((string)$birthdate)) {
-                $date     = DateTime::createFromFormat($format, $birthdate, new DateTimeZone(Yii::$app->getTimeZone()));
+                $date     = \DateTime::createFromFormat($format, $birthdate, new \DateTimeZone(Yii::$app->getTimeZone()));
 
-                $now      = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
+                $now      = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
 
-                if ($now instanceof DateTime) {
+                if ($now instanceof \DateTime) {
                     $interval = $now->diff($date);
 
-                    if ($interval instanceof DateInterval) {
+                    if ($interval instanceof \DateInterval) {
                         return $interval->y;
                     }
                 }

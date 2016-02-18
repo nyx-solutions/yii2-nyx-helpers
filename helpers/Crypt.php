@@ -3,11 +3,11 @@
     namespace nox\helpers;
 
     /**
-     * Class StringCryptHelper
+     * Class Crypt
      *
      * @package nox\helpers
      */
-    class StringCryptHelper extends StringHelper
+    class Crypt extends Text
     {
         const SECRET = '348090af7ef0621b1fc980719b890596ed6a22be6ee5137de4ded23b8867a598f9d7e7d5fec22b9f3647ff42b148b9ee98003aab116206816ec9827b9915b56c';
 

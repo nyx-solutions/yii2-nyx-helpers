@@ -2,14 +2,12 @@
 
     namespace nox\helpers;
 
-    use yii\helpers\ArrayHelper as YiiArrayHelper;
-
     /**
-     * Class ArrayHelper
+     * Class Matrix
      *
      * @package nox\helpers
      */
-    class ArrayHelper extends YiiArrayHelper
+    class Matrix extends \yii\helpers\ArrayHelper
     {
         const SLUG_METHOD_SINGLE = 1;
         const SLUG_METHOD_AS_KEY = 2;
@@ -26,7 +24,7 @@
                 $slugs = [];
 
                 foreach ($items as $item) {
-                    $slug = StringHelper::asSlug((string)$item);
+                    $slug = Text::asSlug((string)$item);
 
                     if ($method === self::SLUG_METHOD_SINGLE) {
                         $slugs[] = $slug;
