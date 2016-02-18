@@ -5,15 +5,12 @@
   "keywords": [
     "yii2",
     "extension",
-    "console",
-    "cron",
-    "jobs",
-    "cron jobs",
+    "helpers",
     "framework",
     "php"
   ],
   "license": "Apache-2.0",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Jonatas Sas",
@@ -27,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "nox\\console\\controllers\\": "console/controllers/"
+      "nox\\helpers\\": "helpers/"
     }
   },
   "config": {
