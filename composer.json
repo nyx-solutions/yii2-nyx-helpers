@@ -1,6 +1,6 @@
 {
   "name": "nox-it/yii2-nox-helpers",
-  "description": "Yii2 NOX Cron Jobs",
+  "description": "Yii2 NOX Helpers",
   "type": "library",
   "keywords": [
     "yii2",
