@@ -9,7 +9,7 @@
      *
      * @package nox\helpers
      */
-    class DateTime
+    class DateTimeHelper
     {
         const TYPE_DATE      = 'date';
         const TYPE_TIME      = 'time';
