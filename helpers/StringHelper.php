@@ -5,14 +5,13 @@
     use DateTime;
     use DateTimeZone;
     use Yii;
-    use yii\helpers\StringHelper;
 
     /**
-     * Class Text
+     * Class StringHelper
      *
      * @package nox\helpers
      */
-    class Text extends StringHelper
+    class StringHelper extends \yii\helpers\StringHelper
     {
         const GENDER_MALE       = 'M';
         const GENDER_FEMALE     = 'F';

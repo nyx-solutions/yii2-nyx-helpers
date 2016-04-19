@@ -5,11 +5,11 @@
     use Yii;
 
     /**
-     * Class Mask
+     * Class MaskHelper
      *
      * @package nox\helpers
      */
-    class Mask extends Text
+    class MaskHelper extends StringHelper
     {
         const MASK_PATTERN_CPF         = '###.###.###-###';
         const MASK_PATTERN_CNPJ        = '##.###.###/####-##';

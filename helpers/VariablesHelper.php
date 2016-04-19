@@ -5,11 +5,11 @@
     use nox\helpers\exceptions\InvalidVariableTypeException;
 
     /**
-     * Class Variables
+     * Class VariablesHelper
      *
      * @package nox\helpers
      */
-    class Variables
+    class VariablesHelper
     {
         const TYPE_TEXT_COLOR_BLACK = 1;
         const TYPE_TEXT_COLOR_WHITE = 2;

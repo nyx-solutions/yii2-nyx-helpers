@@ -3,11 +3,11 @@
     namespace nox\helpers;
 
     /**
-     * Class Number
+     * Class NumberHelper
      *
      * @package nox\helpers
      */
-    class Number
+    class NumberHelper
     {
         /**
          * Recebe uma string formatada e retorna apenas os seus números.
@@ -20,7 +20,7 @@
          */
         public static function justNumbers($content = '')
         {
-            return Text::justNumbers($content);
+            return StringHelper::justNumbers($content);
         }
 
         /**
@@ -33,7 +33,7 @@
          */
         public static function toSpelled($value = 0, $upper = false)
         {
-            return Text::toSpelledNumber($value, $upper);
+            return StringHelper::toSpelledNumber($value, $upper);
         }
 
         /**
@@ -46,6 +46,6 @@
          */
         public static function toMoney($amount, $withPrefix = true)
         {
-            return Text::toMoney($amount, $withPrefix);
+            return StringHelper::toMoney($amount, $withPrefix);
         }
     }

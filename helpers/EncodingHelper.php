@@ -3,11 +3,11 @@
     namespace nox\helpers;
 
     /**
-     * Class Encoding
+     * Class EncodingHelper
      *
      * @package nox\helpers
      */
-    class Encoding
+    class EncodingHelper
     {
         const ICONV_TRANSLIT = 'TRANSLIT';
         const ICONV_IGNORE   = 'IGNORE';

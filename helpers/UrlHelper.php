@@ -2,11 +2,13 @@
 
     namespace nox\helpers;
 
+    use yii\helpers\Url;
+
     /**
-     * Class HtmlPurifier
+     * Class UrlHelper
      *
      * @package nox\helpers
      */
-    class HtmlPurifier extends \yii\helpers\HtmlPurifier
+    class UrlHelper extends Url
     {
     }

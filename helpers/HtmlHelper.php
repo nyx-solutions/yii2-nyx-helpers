@@ -2,15 +2,17 @@
 
     namespace nox\helpers;
 
+    use yii\helpers\Html;
+
     /**
-     * Class Html
+     * Class HtmlHelper
      *
      * @category Html
      * @author   Jonatas Sas
      *
      * @package  nox\helpers
      */
-    class Html extends \yii\helpers\Html
+    class HtmlHelper extends Html
     {
         /**
          * @param string $glyph

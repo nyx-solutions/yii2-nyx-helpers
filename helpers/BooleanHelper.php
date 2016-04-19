@@ -3,11 +3,11 @@
     namespace nox\helpers;
 
     /**
-     * Class File
+     * Class BooleanHelper
      *
      * @package nox\helpers
      */
-    class Boolean
+    class BooleanHelper
     {
         /**
          * Returns $bool value in the string $format
@@ -70,7 +70,7 @@
                             case 'y-n':
                             case 'yesno':
                             case 'yes/no':
-                            case 'yes-no': 
+                            case 'yes-no':
                                 $string = $bool ? 'yes' : 'no';
                                 break;
 

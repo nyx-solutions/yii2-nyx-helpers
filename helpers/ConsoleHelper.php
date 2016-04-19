@@ -2,11 +2,13 @@
 
     namespace nox\helpers;
 
+    use yii\helpers\Console;
+
     /**
-     * Class Url
+     * Class ConsoleHelper
      *
      * @package nox\helpers
      */
-    class Url extends \yii\helpers\Url
+    class ConsoleHelper extends Console
     {
     }
