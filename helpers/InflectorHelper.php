@@ -5,13 +5,14 @@
     use Yii;
     use yii\base\InvalidConfigException;
     use yii\helpers\Html;
+    use yii\helpers\Inflector;
 
     /**
-     * Class Inflector
+     * Class InflectorHelper
      *
      * @package nox\helpers
      */
-    class Inflector extends \yii\helpers\Inflector
+    class InflectorHelper extends Inflector
     {
         /**
          * @var array

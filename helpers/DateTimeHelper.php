@@ -5,7 +5,7 @@
     use Yii;
 
     /**
-     * Class DateTime
+     * Class DateTimeHelper
      *
      * @package nox\helpers
      */

@@ -1,15 +1,15 @@
 <?php
 
-    namespace nox\bool\helpers;
+    namespace nox\helpers;
 
     use Yii;
 
     /**
-     * Class Slug
+     * Class SlugHelper
      *
      * @package nox\helpers
      */
-    class Slug extends Text
+    class SlugHelper extends StringHelper
     {
         /**
          * @param string  $value

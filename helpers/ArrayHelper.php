@@ -3,11 +3,11 @@
     namespace nox\helpers;
 
     /**
-     * Class Matrix
+     * Class ArrayHelper
      *
      * @package nox\helpers
      */
-    class Matrix extends \yii\helpers\ArrayHelper
+    class ArrayHelper extends \yii\helpers\ArrayHelper
     {
         const SLUG_METHOD_SINGLE = 1;
         const SLUG_METHOD_AS_KEY = 2;
@@ -24,7 +24,7 @@
                 $slugs = [];
 
                 foreach ($items as $item) {
-                    $slug = Text::asSlug((string)$item);
+                    $slug = StringHelper::asSlug((string)$item);
 
                     if ($method === self::SLUG_METHOD_SINGLE) {
                         $slugs[] = $slug;

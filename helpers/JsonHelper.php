@@ -2,11 +2,13 @@
 
     namespace nox\helpers;
 
+    use yii\helpers\Json;
+
     /**
-     * Class FormatConverter
+     * Class JsonHelper
      *
      * @package nox\helpers
      */
-    class FormatConverter extends \yii\helpers\FormatConverter
+    class JsonHelper extends Json
     {
     }

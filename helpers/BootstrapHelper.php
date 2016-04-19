@@ -5,11 +5,11 @@
     use Yii;
 
     /**
-     * Class Bootstrap
+     * Class BootstrapHelper
      *
      * @package nox\helpers
      */
-    class Bootstrap extends Html
+    class BootstrapHelper extends HtmlHelper
     {
         /**
          * Bootstrap CSS helpers
