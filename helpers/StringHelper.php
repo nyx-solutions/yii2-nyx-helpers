@@ -743,18 +743,18 @@
          */
         public static function generatePassword($length = 0, $upper = 0, $lower = 0, $digit = 0, $special = 0)
         {
-            $length = (int)$length;
-            $upper = (int)$upper;
-            $lower = (int)$lower;
-            $digit = (int)$digit;
-            $special = (int)$special;
+            $length      = (int)$length;
+            $upper       = (int)$upper;
+            $lower       = (int)$lower;
+            $digit       = (int)$digit;
+            $special     = (int)$special;
 
-            $lowerList = 'abcdefghijklmnopqrstuvxwyz';
-            $upperList = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ';
-            $digitList = '0123456789';
+            $lowerList   = 'abcdefghijklmnopqrstuvxwyz';
+            $upperList   = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ';
+            $digitList   = '0123456789';
             $specialList = '!@#$%&*()_-+={}[]?:;';
 
-            $gapList = '';
+            $gapList     = '';
 
             if ($upper > 0) {
                 $gapList .= $upperList;
@@ -770,6 +770,10 @@
 
             if ($special > 0) {
                 $gapList .= $specialList;
+            }
+
+            if (empty($gapList)) {
+                $gapList .= $lowerList.$digitList;
             }
 
             $final = '';
