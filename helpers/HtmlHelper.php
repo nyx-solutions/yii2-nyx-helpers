@@ -19,11 +19,13 @@
          * @param string $content
          * @param string $prefix
          * @param string $suffix
+         * @param string $prefixSep
+         * @param string $suffixSep
          *
          * @return string
          */
-        public static function glyphicon($glyph, $content = '', $prefix = '', $suffix = ' ')
+        public static function glyphicon($glyph, $content = '', $prefix = '', $suffix = ' ', $prefixSep = '', $suffixSep = '')
         {
-            return $prefix.static::tag('span', $content, ['class' => 'glyphicon glyphicon-'.$glyph]).$suffix;
+            return $prefix.$prefixSep.self::tag('span', $content, ['class' => 'glyphicon glyphicon-'.$glyph]).$suffixSep.$suffix;
         }
     }
