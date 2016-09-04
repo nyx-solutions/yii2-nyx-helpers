@@ -898,4 +898,21 @@
                 return (string)$lastName;
             }
         }
+
+        /**
+         * @param string $string
+         *
+         * @return string
+         */
+        public static function toASCII($string = '') {
+            $convertedString = '';
+
+            $length = strlen($string);
+
+            for ($i = 0; $i < $length; $i++) {
+                $convertedString .= '\\x'.dechex(ord(substr($string, $i, 1)));
+            }
+
+            return $convertedString;
+        }
     }
