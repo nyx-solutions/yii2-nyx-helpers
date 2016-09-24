@@ -733,15 +733,29 @@
         }
 
         /**
-         * @param int $length
-         * @param int $upper
-         * @param int $lower
-         * @param int $digit
-         * @param int $special
+         * @param integer $length
+         * @param integer $upper
+         * @param integer $lower
+         * @param integer $digit
+         * @param integer $special
          *
          * @return string
          */
         public static function generatePassword($length = 0, $upper = 0, $lower = 0, $digit = 0, $special = 0)
+        {
+            return static::generateRandomString($length, $upper, $lower, $digit, $special);
+        }
+
+        /**
+         * @param integer $length
+         * @param integer $upper
+         * @param integer $lower
+         * @param integer $digit
+         * @param integer $special
+         *
+         * @return string
+         */
+        public static function generateRandomString($length = 0, $upper = 0, $lower = 0, $digit = 0, $special = 0)
         {
             $length      = (int)$length;
             $upper       = (int)$upper;
@@ -820,6 +834,35 @@
             } else {
                 return (string)rand(100000, 999999);
             }
+        }
+
+        /**
+         * @param integer|string $numbers
+         * @param array          $charsTable
+         *
+         * @return string
+         */
+        public static function stringfyNumbers($numbers, $charsTable = [])
+        {
+            $numbers = str_split((string)$numbers);
+
+            if (!is_array($charsTable) || count($charsTable) !== 11) {
+                $charsTable = ['y', 'p', 'k', 'a', 't', 'n', 'o', 'e', 'q', 'f', 'm'];
+            }
+
+            $string = '';
+
+            foreach ($numbers as $number) {
+                $number = (int)$number;
+
+                if ($number > 9) {
+                    $number = 9;
+                }
+
+                $string .= ((rand(1, 2) % 2 == 0) ? strtoupper((string)$charsTable[$number]) : (string)$charsTable[$number]);
+            }
+
+            return $string;
         }
 
         /**
@@ -914,5 +957,23 @@
             }
 
             return $convertedString;
+        }
+        
+        /**
+         * @param string $str
+         * @param string $needleStart
+         * @param string $needleEnd
+         * @param string $replacement
+         *
+         * @return string
+         */
+        public static function replaceBetween($str, $needleStart, $needleEnd, $replacement) {
+            $pos = strpos($str, $needleStart);
+            $start = $pos === false ? 0 : $pos + strlen($needleStart);
+
+            $pos = strpos($str, $needleEnd, $start);
+            $end = $start === false ? strlen($str) : $pos;
+
+            return substr_replace($str,$replacement,  $start, $end - $start);
         }
     }
