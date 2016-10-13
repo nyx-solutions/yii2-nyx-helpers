@@ -10,7 +10,7 @@
     "php"
   ],
   "license": "BSD-3-Clause",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "authors": [
     {
       "name": "Jonatas Sas",
@@ -33,7 +33,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://bitbucket.org/noxit-plugins/yii2-nox-helpers"
+      "url": "https://github.com/jsas-development/yii2-nox-helpers"
     }
   ]
 }

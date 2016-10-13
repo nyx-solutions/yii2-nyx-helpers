@@ -11,8 +11,8 @@ NOX Helpers is a library of Helpers for Yii Framework version 2.
 [![Daily Downloads](https://poser.pugx.org/nox-it/yii2-nox-helpers/d/daily)](https://packagist.org/packages/nox-it/yii2-nox-helpers)
 [![composer.lock](https://poser.pugx.org/nox-it/yii2-nox-helpers/composerlock)](https://packagist.org/packages/nox-it/yii2-nox-helpers)
 
-Installation
-------------
+## Installation
+
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 Either run
@@ -28,5 +28,9 @@ or add
 ```
 
 to the require section of your `composer.json` file.
+
+## License
+
+**yii2-widgets** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
 
 ![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)
