@@ -31,6 +31,6 @@ to the require section of your `composer.json` file.
 
 ## License
 
-**yii2-widgets** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**yii2-nox-helpers** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
 
 ![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)
