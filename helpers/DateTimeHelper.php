@@ -96,7 +96,7 @@
                 $fmt = (is_null($sourceFormat) || empty($sourceFormat)) ? self::BASE_DATE_FORMAT : $sourceFormat;
             } else {
                 if (is_null($sourceFormat) || empty($sourceFormat)) {
-                    return '';
+                    $fmt = 'd/m/Y';
                 } else {
                     $fmt = $sourceFormat;
                 }
@@ -144,15 +144,19 @@
         }
 
         /**
-         * @param string $format
+         * @param string|bool|null $format
          *
-         * @return string
+         * @return string|\DateTime
          */
         public static function now($format = 'Y-m-d H:i:s')
         {
             $now = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
 
-            return $now->format($format);
+            if (is_null($format) || $format === false) {
+                return $now;
+            } else {
+                return $now->format($format);
+            }
         }
 
         /**
