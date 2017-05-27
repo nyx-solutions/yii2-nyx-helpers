@@ -28,4 +28,14 @@
         {
             return $prefix.$prefixSep.self::tag('span', $content, ['class' => 'glyphicon glyphicon-'.$glyph]).$suffixSep.$suffix;
         }
+
+        /**
+         * @param string $html
+         *
+         * @return string
+         */
+        public static function toText($html)
+        {
+            return strip_tags($html);
+        }
     }
