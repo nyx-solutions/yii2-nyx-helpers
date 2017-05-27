@@ -958,7 +958,7 @@
 
             return $convertedString;
         }
-        
+
         /**
          * @param string $str
          * @param string $needleStart
@@ -975,5 +975,23 @@
             $end = $start === false ? strlen($str) : $pos;
 
             return substr_replace($str,$replacement,  $start, $end - $start);
+        }
+
+        /**
+         * @param string $email
+         *
+         * @return string
+         */
+        public static function obfuscateEmail($email)
+        {
+            $emailSplit = explode('@', $email);
+            $email      = $emailSplit[0];
+            $len        = strlen($email) - 1;
+
+            for ($i = 1; $i < $len; $i++) {
+                $email[$i] = '*';
+            }
+
+            return $email.'@'.$emailSplit[1];
         }
     }
