@@ -66,10 +66,11 @@
          * @param string  $value
          * @param string  $spaces
          * @param integer $case
+         * @param bool    $singleSpace
          *
          * @return string
          */
-        public static function asSlug($value = '', $spaces = '-', $case = MB_CASE_LOWER)
+        public static function asSlug($value = '', $spaces = '-', $case = MB_CASE_LOWER, $singleSpace = true)
         {
             $value = (string)$value;
 
@@ -77,11 +78,28 @@
                 $case = MB_CASE_LOWER;
             }
 
+            $auxSpaces = quotemeta($spaces);
+
             $value = static::removeAccents($value);
 
             $value = preg_replace('/ /', $spaces, trim($value));
-            $value = preg_replace('/([^A-Za-z0-9'.quotemeta($spaces).']{1,})/', '', $value);
+            $value = preg_replace("/([^A-Za-z0-9{$auxSpaces}]{1,})/", '', $value);
             $value = mb_convert_case($value, $case, 'UTF-8');
+
+            if ((bool)$singleSpace) {
+                $i   = 1;
+                $max = 100;
+
+                while (preg_match("/{$auxSpaces}{$auxSpaces}/", $value)) {
+                    if ($i > $max) {
+                        break;
+                    }
+
+                    $value = preg_replace("/{$auxSpaces}{$auxSpaces}/", $auxSpaces, $value);
+
+                    $i++;
+                }
+            }
 
             return (string)$value;
         }
