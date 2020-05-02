@@ -2,6 +2,10 @@
 
     namespace nox\helpers;
 
+    use DateInterval;
+    use DateTime;
+    use DateTimeZone;
+    use Exception;
     use Yii;
 
     /**
@@ -58,9 +62,9 @@
 
             unset($fmt);
 
-            $date = \DateTime::createFromFormat($sourceFormat, $date);
+            $date = DateTime::createFromFormat($sourceFormat, $date);
 
-            if ($date instanceof \DateTime) {
+            if ($date instanceof DateTime) {
                 $date = $date->format($targetFormat);
             } else {
                 $date = '';
@@ -74,18 +78,20 @@
          * @param string $sourceFormat
          * @param string $type
          *
-         * @return \DateTime
+         * @return DateTime
+         *
+         * @throws Exception
          */
         public static function asDate($date, $sourceFormat = 'd/m/Y', $type = 'date')
         {
             $date = (string)$date;
 
             if (!in_array($type, [self::TYPE_DATE, self::TYPE_TIME, self::TYPE_DATE_TIME, self::TYPE_OTHER])) {
-                return new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
+                return new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             if (empty($date)) {
-                return new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
+                return new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             if ($type === self::TYPE_DATE_TIME) {
@@ -106,10 +112,10 @@
 
             unset($fmt);
 
-            $date = \DateTime::createFromFormat($sourceFormat, $date, new \DateTimeZone(Yii::$app->getTimeZone()));
+            $date = DateTime::createFromFormat($sourceFormat, $date, new DateTimeZone(Yii::$app->getTimeZone()));
 
-            if (!$date instanceof \DateTime) {
-                $date = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
+            if (!$date instanceof DateTime) {
+                $date = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
             }
 
             return $date;
@@ -121,6 +127,8 @@
          * @param string $returnFormat
          *
          * @return bool|string
+         *
+         * @noinspection PhpUnusedParameterInspection
          */
         public static function isValid($date, $format = 'Y-m-d', $returnFormat = 'Y-m-d')
         {
@@ -128,9 +136,9 @@
 
             if (!empty($date) && !is_null($date)) {
                 if (preg_match('/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/', $date)) {
-                    $date = \DateTime::createFromFormat('d/m/Y', $date, new \DateTimeZone(Yii::$app->getTimeZone()));
+                    $date = DateTime::createFromFormat('d/m/Y', $date, new DateTimeZone(Yii::$app->getTimeZone()));
 
-                    if ($date instanceof \DateTime) {
+                    if ($date instanceof DateTime) {
                         return $date->format($returnFormat);
                     } else {
                         return false;
@@ -146,11 +154,13 @@
         /**
          * @param string|bool|null $format
          *
-         * @return string|\DateTime
+         * @return string|DateTime
+         *
+         * @throws Exception
          */
         public static function now($format = 'Y-m-d H:i:s')
         {
-            $now = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
+            $now = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
 
             if (is_null($format) || $format === false) {
                 return $now;
@@ -164,18 +174,20 @@
          * @param string $format
          *
          * @return integer
+         *
+         * @throws Exception
          */
         public static function getAge($birthdate, $format = 'Y-m-d')
         {
             if (!empty((string)$birthdate)) {
-                $date     = \DateTime::createFromFormat($format, $birthdate, new \DateTimeZone(Yii::$app->getTimeZone()));
+                $date     = DateTime::createFromFormat($format, $birthdate, new DateTimeZone(Yii::$app->getTimeZone()));
 
-                $now      = new \DateTime('now', new \DateTimeZone(Yii::$app->getTimeZone()));
+                $now      = new DateTime('now', new DateTimeZone(Yii::$app->getTimeZone()));
 
-                if ($now instanceof \DateTime) {
+                if ($now instanceof DateTime) {
                     $interval = $now->diff($date);
 
-                    if ($interval instanceof \DateInterval) {
+                    if ($interval instanceof DateInterval) {
                         return $interval->y;
                     }
                 }

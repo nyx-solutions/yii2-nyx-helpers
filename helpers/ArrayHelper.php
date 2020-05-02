@@ -58,18 +58,4 @@
                 return [];
             }
         }
-
-        /**
-         * @param array $items
-         *
-         * @return array
-         *
-         * @see static::asAssociative()
-         *
-         * @deprecated
-         */
-        public static function asAssociate($items)
-        {
-            return static::asAssociative($items);
-        }
     }

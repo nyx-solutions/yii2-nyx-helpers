@@ -2,8 +2,6 @@
 
     namespace nox\helpers;
 
-    use Yii;
-
     /**
      * Class SlugHelper
      *

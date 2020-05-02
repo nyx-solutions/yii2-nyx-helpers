@@ -94,7 +94,7 @@
          */
         public static function bsLabel($content, $type = '', $options = [], $prefix = 'label label-', $tag = 'span')
         {
-            if (Variables::isEmpty($type)) {
+            if (VariablesHelper::isEmpty($type)) {
                 $type = self::TYPE_DEFAULT;
             }
             $class = isset($options['class']) ? ' '.$options['class'] : '';
@@ -217,10 +217,10 @@
             if (is_array($content)) {
                 $heading = isset($content['heading']) ? $content['heading'] : '';
                 $body = isset($content['body']) ? $content['body'] : '';
-                if (!Variables::isEmpty($heading)) {
+                if (!VariablesHelper::isEmpty($heading)) {
                     $heading = static::tag('h4', $heading, ['class' => 'list-group-item-heading']);
                 }
-                if (!Variables::isEmpty($body)) {
+                if (!VariablesHelper::isEmpty($body)) {
                     $body = static::tag('p', $body, ['class' => 'list-group-item-text']);
                 }
                 $content = $heading."\n".$body;
@@ -228,13 +228,13 @@
 
             /* Parse item badge component */
             $badge = isset($item['badge']) ? $item['badge'] : '';
-            if (!Variables::isEmpty($badge)) {
+            if (!VariablesHelper::isEmpty($badge)) {
                 $content = static::badge($badge).$content;
             }
 
             /* Parse item url */
             $url = isset($item['url']) ? $item['url'] : '';
-            if (!Variables::isEmpty($url)) {
+            if (!VariablesHelper::isEmpty($url)) {
                 /* Parse if item is active */
                 if (isset($item['active']) && $item['active']) {
                     static::addCssClass($item['options'], 'active');
@@ -366,48 +366,11 @@
          *                        - TYPE_INFO    = 'info'
          *                        - TYPE_WARNING = 'warning'
          *                        - TYPE_DANGER  = 'danger'
-         * @param array  $options html options for the panel container
-         *
-         * Example(s):
-         * ~~~
-         * echo Html::panel(
-         *    ['heading' => 'Panel Heading', 'body' => 'Panel Content'],
-         *    Html::TYPE_SUCCESS
-         * );
-         * echo Html::panel(
-         *    [
-         *      'heading' => 'Panel Heading',
-         *      'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ' .
-         *          'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-         *      'postBody' => Html::listGroup([
-         *          [
-         *              'content' => 'Cras justo odio',
-         *              'url' => '#',
-         *              'badge' => '14'
-         *          ],
-         *          [
-         *              'content' => 'Dapibus ac facilisis in',
-         *              'url' => '#',
-         *              'badge' => '2'
-         *          ],
-         *          [
-         *              'content' => 'Morbi leo risus',
-         *              'url' => '#',
-         *              'badge' => '1'
-         *          ],
-         *      ], [], 'ul', 'li'),
-         *      'footer'=> 'Panel Footer',
-         *      'headingTitle' => true,
-         *      'footerTitle' => true,
-         *  ]
-         * );
-         * ~~~
-         *
          * @param array  $options html options for the panel
          *
+         * @return string
          * @see http://getbootstrap.com/components/#panels
          *
-         * @return string
          */
         public static function panel($content = [], $type = 'default', $options = [])
         {
@@ -415,14 +378,14 @@
                 return '';
             } else {
                 static::addCssClass($options, 'panel panel-'.$type);
-                $panel = (!Variables::isEmpty($content['preHeading'])) ? $content['preHeading']."\n" : '';
+                $panel = (!VariablesHelper::isEmpty($content['preHeading'])) ? $content['preHeading']."\n" : '';
                 $panel .= static::generatePanelTitle($content, 'heading');
-                $panel .= (!Variables::isEmpty($content['preBody'])) ? $content['preBody']."\n" : '';
-                $panel .= (!Variables::isEmpty($content['body'])) ? static::tag('div', $content['body'],
+                $panel .= (!VariablesHelper::isEmpty($content['preBody'])) ? $content['preBody']."\n" : '';
+                $panel .= (!VariablesHelper::isEmpty($content['body'])) ? static::tag('div', $content['body'],
                         ['class' => 'panel-body'])."\n" : '';
-                $panel .= (!Variables::isEmpty($content['postBody'])) ? $content['postBody']."\n" : '';
+                $panel .= (!VariablesHelper::isEmpty($content['postBody'])) ? $content['postBody']."\n" : '';
                 $panel .= static::generatePanelTitle($content, 'footer');
-                $panel .= (!Variables::isEmpty($content['postFooter'])) ? $content['postFooter']."\n" : '';
+                $panel .= (!VariablesHelper::isEmpty($content['postFooter'])) ? $content['postFooter']."\n" : '';
 
                 return static::tag('div', $panel, $options);
             }
@@ -438,7 +401,7 @@
          */
         protected static function generatePanelTitle($content, $type)
         {
-            if (!Variables::isEmpty($content[$type])) {
+            if (!VariablesHelper::isEmpty($content[$type])) {
                 $title = $content[$type];
                 if (isset($content["{$type}Title"]) && $content["{$type}Title"]) {
                     $title = static::tag("h3", $title, ["class" => "panel-title"]);
@@ -472,7 +435,7 @@
         public static function pageHeader($title, $subTitle = '', $options = [])
         {
             static::addCssClass($options, 'page-header');
-            if (!Variables::isEmpty($subTitle)) {
+            if (!VariablesHelper::isEmpty($subTitle)) {
                 $title = "<h1>{$title} <small>{$subTitle}</small></h1>";
             } else {
                 $title = "<h1>{$title}</h1>";
@@ -507,7 +470,7 @@
         public static function well($content, $size = '', $options = [])
         {
             static::addCssClass($options, 'well');
-            if (!Variables::isEmpty($size)) {
+            if (!VariablesHelper::isEmpty($size)) {
                 static::addCssClass($options, 'well-'.$size);
             }
 
@@ -561,9 +524,9 @@
             static::addCssClass($imgOptions, 'media-object');
 
             $source = static::a(static::img($img, $imgOptions), $src, $srcOptions);
-            $heading = (!Variables::isEmpty($heading)) ? static::tag('h4', $heading,
+            $heading = (!VariablesHelper::isEmpty($heading)) ? static::tag('h4', $heading,
                 ['class' => 'media-heading']) : '';
-            $content = (!Variables::isEmpty($body)) ? static::tag('div', $heading."\n".$body,
+            $content = (!VariablesHelper::isEmpty($body)) ? static::tag('div', $heading."\n".$body,
                 ['class' => 'media-body']) : $heading;
 
             return static::tag($tag, $source."\n".$content, $options);
@@ -783,26 +746,14 @@
          * @param string $citeSource  the cite source (optional)
          * @param array  $options     html options for the blockquote
          *
-         * Example(s):
-         * ~~~
-         * echo Html::blockquote(
-         *      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
-         *      'Someone famous in {source}',
-         *      'International Premier League',
-         *      'IPL'
-         * );
-         * ~~~
-         *
-         * @param array  $options     html options for the blockquote
-         *
+         * @return string
          * @see http://getbootstrap.com/css/#type-blockquotes
          *
-         * @return string
          */
         public static function blockquote($content, $citeContent = '', $citeTitle = '', $citeSource = '', $options = [])
         {
             $content = static::tag('p', $content);
-            if (!Variables::isEmpty($citeContent)) {
+            if (!VariablesHelper::isEmpty($citeContent)) {
                 $source = static::tag('cite', $citeSource, ['title' => $citeTitle]);
                 $content .= "\n<small>".str_replace('{source}', $source, $citeContent)."</small>";
             }
@@ -857,7 +808,7 @@
             $phoneLabel = '(P)',
             $emailLabel = '(E)'
         ) {
-            Inflector::initI18N();
+            InflectorHelper::initI18N();
 
             $addresses = '';
 

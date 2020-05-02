@@ -4,6 +4,7 @@
 
     use DateTime;
     use DateTimeZone;
+    use Exception;
     use Yii;
 
     /**
@@ -83,7 +84,7 @@
             $value = static::removeAccents($value);
 
             $value = preg_replace('/ /', $spaces, trim($value));
-            $value = preg_replace("/([^A-Za-z0-9{$auxSpaces}]{1,})/", '', $value);
+            $value = preg_replace("/([^A-Za-z0-9{$auxSpaces}]+)/", '', $value);
             $value = mb_convert_case($value, $case, 'UTF-8');
 
             if ((bool)$singleSpace) {
@@ -654,6 +655,8 @@
 
         /**
          * @return string
+         *
+         * @throws Exception
          */
         public static function getUniqueCode()
         {
@@ -686,7 +689,7 @@
         {
             $uid = (string)$uid;
 
-            return (int)preg_replace('/^([0-9]{'.self::ID_PATTERN_LENGTH.'})([0-9]{1,})([0-9]{'.self::ID_PATTERN_LENGTH.'})$/', '$2', (string)$uid);
+            return (int)preg_replace('/^([0-9]{'.self::ID_PATTERN_LENGTH.'})([0-9]+)([0-9]{'.self::ID_PATTERN_LENGTH.'})$/', '$2', (string)$uid);
         }
 
         /**
@@ -814,7 +817,7 @@
                 for ($i = 1; $i <= $length; $i++) {
                     if ($upper > 0) {
                         $aux = str_shuffle($upperList);
-                        $final .= $aux{0};
+                        $final .= $aux[0];
                         $upper--;
 
                         continue;
@@ -822,7 +825,7 @@
 
                     if ($lower > 0) {
                         $aux = str_shuffle($lowerList);
-                        $final .= $aux{0};
+                        $final .= $aux[0];
                         $lower--;
 
                         continue;
@@ -830,7 +833,7 @@
 
                     if ($digit > 0) {
                         $aux = str_shuffle($digitList);
-                        $final .= $aux{0};
+                        $final .= $aux[0];
                         $digit--;
 
                         continue;
@@ -838,14 +841,14 @@
 
                     if ($special > 0) {
                         $aux = str_shuffle($specialList);
-                        $final .= $aux{0};
+                        $final .= $aux[0];
                         $special--;
 
                         continue;
                     }
 
                     $aux = str_shuffle($gapList);
-                    $final .= $aux{0};
+                    $final .= $aux[0];
                 }
 
                 return $final;

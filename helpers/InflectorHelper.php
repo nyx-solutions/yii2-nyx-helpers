@@ -17,7 +17,7 @@
         /**
          * @var array
          */
-        public static $intervals = [
+        public static array $intervals = [
             'year'   => 31556926,
             'month'  => 2629744,
             'week'   => 604800,
@@ -34,7 +34,7 @@
          *
          * @return boolean
          */
-        public static function isEmpty(&$var)
+        public static function isEmpty($var)
         {
             return is_array($var) ? empty($var) : (!isset($var) || (strlen($var) == 0));
         }
@@ -546,6 +546,8 @@
          *                       the initcap case will be used.
          *
          * @return array list of months
+         *
+         * @throws InvalidConfigException
          */
         public static function monthList($abbr = false, $start = 1, $case = null)
         {
@@ -561,6 +563,8 @@
          *                       the initcap case will be used.
          *
          * @return array list of days
+         *
+         * @throws InvalidConfigException
          */
         public static function dayList($abbr = false, $start = 1, $case = null)
         {
