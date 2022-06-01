@@ -1,13 +1,13 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use Yii;
 
     /**
      * Class BootstrapHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class BootstrapHelper extends HtmlHelper
     {

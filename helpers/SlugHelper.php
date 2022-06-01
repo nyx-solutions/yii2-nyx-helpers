@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class SlugHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class SlugHelper extends StringHelper
     {

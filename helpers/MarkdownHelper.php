@@ -1,13 +1,13 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use yii\helpers\Markdown;
 
     /**
      * Class MarkdownHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class MarkdownHelper extends Markdown
     {

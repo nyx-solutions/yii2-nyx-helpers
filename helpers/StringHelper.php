@@ -1,6 +1,6 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use DateTime;
     use DateTimeZone;
@@ -10,7 +10,7 @@
     /**
      * Class StringHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class StringHelper extends \yii\helpers\StringHelper
     {

@@ -1,6 +1,6 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use yii\helpers\Html;
 
@@ -10,7 +10,7 @@
      * @category Html
      * @author   Jonatas Sas
      *
-     * @package  nox\helpers
+     * @package  nyx\helpers
      */
     class HtmlHelper extends Html
     {

@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class CryptHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class CryptHelper extends StringHelper
     {

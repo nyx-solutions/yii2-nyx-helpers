@@ -1,13 +1,13 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use yii\helpers\VarDumper;
 
     /**
      * Class VarDumperHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class VarDumperHelper extends VarDumper
     {

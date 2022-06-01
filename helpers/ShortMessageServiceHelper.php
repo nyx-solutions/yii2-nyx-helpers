@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class ShortMessageServiceHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class ShortMessageServiceHelper extends StringHelper
     {

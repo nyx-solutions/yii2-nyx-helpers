@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class ArrayHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class ArrayHelper extends \yii\helpers\ArrayHelper
     {

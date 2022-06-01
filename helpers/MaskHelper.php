@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class MaskHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class MaskHelper extends StringHelper
     {

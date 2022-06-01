@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class EncodingHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class EncodingHelper
     {

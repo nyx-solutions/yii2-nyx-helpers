@@ -1,13 +1,13 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use yii\helpers\FormatConverter;
 
     /**
      * Class FormatConverterHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class FormatConverterHelper extends FormatConverter
     {

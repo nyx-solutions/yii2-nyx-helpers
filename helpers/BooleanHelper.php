@@ -1,6 +1,6 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use BadMethodCallException;
     use InvalidArgumentException;
@@ -8,7 +8,7 @@
     /**
      * Class BooleanHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class BooleanHelper
     {

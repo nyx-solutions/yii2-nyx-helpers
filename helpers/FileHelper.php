@@ -1,11 +1,11 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     /**
      * Class FileHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class FileHelper extends \yii\helpers\FileHelper
     {

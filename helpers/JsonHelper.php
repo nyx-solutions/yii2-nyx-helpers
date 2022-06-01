@@ -1,13 +1,13 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use yii\helpers\Json;
 
     /**
      * Class JsonHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class JsonHelper extends Json
     {

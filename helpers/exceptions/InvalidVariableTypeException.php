@@ -1,6 +1,6 @@
 <?php
 
-    namespace nox\helpers\exceptions;
+    namespace nyx\helpers\exceptions;
 
     use Throwable;
     use yii\base\Exception;
@@ -8,7 +8,7 @@
     /**
      * Class InvalidVariableTypeException
      *
-     * @package nox\helpers\exceptions
+     * @package nyx\helpers\exceptions
      */
     class InvalidVariableTypeException extends Exception
     {

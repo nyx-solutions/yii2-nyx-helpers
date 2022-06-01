@@ -1,6 +1,6 @@
 <?php
 
-    namespace nox\helpers;
+    namespace nyx\helpers;
 
     use DateInterval;
     use DateTime;
@@ -11,7 +11,7 @@
     /**
      * Class DateTimeHelper
      *
-     * @package nox\helpers
+     * @package nyx\helpers
      */
     class DateTimeHelper
     {
