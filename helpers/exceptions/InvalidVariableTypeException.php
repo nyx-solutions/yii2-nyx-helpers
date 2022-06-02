@@ -7,8 +7,6 @@
 
     /**
      * Class InvalidVariableTypeException
-     *
-     * @package nyx\helpers\exceptions
      */
     class InvalidVariableTypeException extends Exception
     {
